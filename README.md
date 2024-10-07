@@ -1,3 +1,5 @@
+# NppKoboldCpp is the fork of OpenAI (aka. ChatGPT) plugin for Notepad++. NppKoboldCpp more adapted to run together with KoboldСpp on a local computer with self-signed certificate.
+
 # NppOpenAI — OpenAI (aka. ChatGPT) plugin for Notepad++
 A simple Notepad++ plugin to communicate with OpenAI directly from your favorite code editor.
 
