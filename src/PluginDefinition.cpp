@@ -667,7 +667,10 @@ bool callOpenAI(std::string OpenAIURL, std::string JSONRequest, std::string& JSO
 	curl_easy_setopt(curl, CURLOPT_POST, 1);
 	curl_easy_setopt(curl, CURLOPT_WRITEDATA, &JSONResponse);
 	curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, OpenAIcURLCallback); // Send all data to this function
-	curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0); // --insecure
+
+	// --insecure
+	curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0);
+	curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0);
 
 	// Perform the request, res will get the return code
 	res = curl_easy_perform(curl);
