@@ -489,15 +489,15 @@ void askChatGPT()
 						::WritePrivateProfileString(TEXT("PLUGIN"), TEXT("total_tokens_used"), tmpTotalTokens.c_str(), iniFilePath);
 
 						// Alert: incomplete response OR content filter
-						if (JSONResponse["choices"][0]["finish_reason"] == "length")
-						{
-							::MessageBox(nppData._nppHandle, TEXT("The answer may be incomplete.\n\nAfter closing this message the configuration file will be opened. It's recommended to set `max_tokens=0` to use default (infinite) OpenAI setting OR increase e.g. to 3000.\n\nAfter saving the file don't forget to click Plugins » NppOpenAI » Load config."), TEXT("OpenAI: Incomplete answer"), MB_ICONINFORMATION);
-							openConfig();
-						}
-						else if (JSONResponse["choices"][0]["finish_reason"] == "content_filter") // Categories: hate, hate/threatening, self-harm, sexual, sexual/minors, violence, and violence/graphic.
-						{
-							::MessageBox(nppData._nppHandle, TEXT("The answer has been omitted due to a flag from OpenAI content filters."), TEXT("OpenAI: Moderation"), MB_ICONWARNING);
-						}
+						// if (JSONResponse["choices"][0]["finish_reason"] == "length")
+						// {
+						// 	::MessageBox(nppData._nppHandle, TEXT("The answer may be incomplete.\n\nAfter closing this message the configuration file will be opened. It's recommended to set `max_tokens=0` to use default (infinite) OpenAI setting OR increase e.g. to 3000.\n\nAfter saving the file don't forget to click Plugins » NppOpenAI » Load config."), TEXT("OpenAI: Incomplete answer"), MB_ICONINFORMATION);
+						// 	openConfig();
+						// }
+						// else if (JSONResponse["choices"][0]["finish_reason"] == "content_filter") // Categories: hate, hate/threatening, self-harm, sexual, sexual/minors, violence, and violence/graphic.
+						// {
+						// 	::MessageBox(nppData._nppHandle, TEXT("The answer has been omitted due to a flag from OpenAI content filters."), TEXT("OpenAI: Moderation"), MB_ICONWARNING);
+						// }
 					}
 					else if (JSONResponse.contains("error"))
 					{
